@@ -5,7 +5,7 @@ let baseConfig = {
     console.log(appConfig);
     let whcy = new Whcy("",this);
     debugger
-    this.whcy = whcy;
+    wx.whcy = whcy;
     console.log(whcy);
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

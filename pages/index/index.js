@@ -23,7 +23,7 @@ Page({
     this.setData({
       goodsLoading:true
     })
-    app.whcy.request({
+    wx.whcy.request({
       url:"https://weixintest.whcyit.com/server-api/index/getIndexGoodsListByPage.json",
       method:"post",
       data:{
@@ -52,17 +52,17 @@ Page({
     console.log("2ddasda");
   },
   onShow:function(){
-    app.whcy.showLoading();
+    wx.whcy.showLoading();
     this.loadGoods();
     setTimeout(()=>{
-      app.whcy.showToast({
+      wx.whcy.showToast({
         title:"toast"
       })
-      app.whcy.hideLoading();
+      wx.whcy.hideLoading();
     },4000)
   },
   onLoad: function () {
-    app.whcy.$on({
+    wx.whcy.$on({
       name:"delete-address",
       tg:this,
       success:(res)=>{

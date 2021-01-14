@@ -1,7 +1,5 @@
 // pages/index2/index2.js
 //index.js
-//获取应用实例
-const app = getApp();
 Page({
 
   /**
@@ -11,7 +9,7 @@ Page({
 
   },
   senMsg(){
-    app.whcy.$emit({
+    wx.whcy.$emit({
       name: "delete-address",
       data: "饿了么"
     });
