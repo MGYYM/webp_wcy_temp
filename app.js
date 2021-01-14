@@ -4,6 +4,7 @@ let baseConfig = {
   onLaunch: function () {
     console.log(appConfig);
     let whcy = new Whcy("",this);
+    debugger
     this.whcy = whcy;
     console.log(whcy);
     // 展示本地存储能力

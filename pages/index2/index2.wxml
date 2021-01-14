@@ -1,0 +1,5 @@
+<!--pages/index2/index2.wxml-->
+<text>pages/index2/index2.wxml</text>
+<view>
+    <button bind:tap="senMsg">点击传递消息</button>
+</view>

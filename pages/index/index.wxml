@@ -6,6 +6,8 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <button bind:tap="index2">去index2页面</button>
+  <text>接收的消息{{resmsg}}</text>
    <flow-water style="--padding: 10rpx;width:100%" key="goodsSpuId" class="goods-compont" datas="{{goods}}" showLoading="{{goodsLoading}}" generic:itemcus="l-demo">
   </flow-water>
   <view class="usermotto">

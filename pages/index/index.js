@@ -12,7 +12,11 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     hasNextPage:true,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    resmsg:""
+  },
+  index2(){
+    wx.navigateTo({url:"/pages/index2/index2"});
   },
   loadGoods(){
     if(!this.data.hasNextPage) return;
@@ -48,9 +52,26 @@ Page({
     console.log("2ddasda");
   },
   onShow:function(){
+    app.whcy.showLoading();
     this.loadGoods();
+    setTimeout(()=>{
+      app.whcy.showToast({
+        title:"toast"
+      })
+      app.whcy.hideLoading();
+    },4000)
   },
   onLoad: function () {
+    app.whcy.$on({
+      name:"delete-address",
+      tg:this,
+      success:(res)=>{
+        console.log("接受到了消息"+res);
+        this.setData({
+          resmsg:res
+        })
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
