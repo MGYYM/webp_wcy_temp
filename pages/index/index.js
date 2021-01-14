@@ -4,16 +4,51 @@ const app = getApp()
 
 Page({
   data: {
+    pageNum:1,
+    pageSize:4,
+    goodsLoading:false,
+    goods:[],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+    hasNextPage:true,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
+  },
+  loadGoods(){
+    if(!this.data.hasNextPage) return;
+    this.setData({
+      goodsLoading:true
+    })
+    app.whcy.request({
+      url:"https://weixintest.whcyit.com/server-api/index/getIndexGoodsListByPage.json",
+      method:"post",
+      data:{
+        "pageNum": this.data.pageNum,
+        "pageSize": this.data.pageSize
+      }
+    }).then((res)=>{
+      this.data.goods.push(...res.data.items);
+      this.setData({
+        goodsLoading:!this.data.goodsLoading,
+        goods:this.data.goods
+      })
+      this.setData({
+        hasNextPage:res.data.hasNextPage
+      })
+    });
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../logs/logs',
+      method:'get'
     })
+  },
+  showImg:function(){
+    console.log("2ddasda");
+  },
+  onShow:function(){
+    this.loadGoods();
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -50,5 +85,9 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onReachBottom: function () {//可以重写空来覆盖
+    this.data.pageNum = this.data.pageNum+1;
+    this.loadGoods();
   }
 })

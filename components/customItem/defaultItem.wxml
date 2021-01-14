@@ -1,0 +1,7 @@
+<view class="item list2 mt-2 item-{{index}}" data-id="{{item.goodsSpuId}}" data-item="{{item.goodsSpuId}}" bind:tap="goDetail">
+    <image wepb="true" class="img" mode="widthFix" data-index="{{index}}" binderror="loadthis" bindload="loadthis" src="{{item.goodsImg}}"></image>
+    <view class="goods-info">
+        <view class="title font-md">{{item.goodsName}}</view>
+        <view class="price font-md din-font">{{item.goodsPrice}} 积分</view>
+    </view>
+</view>

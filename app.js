@@ -1,6 +1,11 @@
+import {Whcy,appConfig} from "webp_wcyui"
 //app.js
-App({
+let baseConfig = {
   onLaunch: function () {
+    console.log(appConfig);
+    let whcy = new Whcy("",this);
+    this.whcy = whcy;
+    console.log(whcy);
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -36,4 +41,6 @@ App({
   globalData: {
     userInfo: null
   }
-})
+}
+baseConfig = Object.assign(baseConfig,appConfig);
+App(baseConfig)

@@ -1,0 +1,32 @@
+.list2 {
+  //width: calc((100% - var(--padding))/2);
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+  .img {
+    width: 100%;
+    height: 100rpx;//会被覆盖，这里防止图片加载不出来给个默认高度
+  }
+  .goods-info {
+    padding: 16rpx;
+    padding-top: 0rpx;
+    .title {
+      color: #333;
+      // font-size: 30rpx;
+    }
+    .price {
+      color: #FF3B30;
+      font-weight: 800;
+      // font-size: 34rpx;
+    }
+    .buy-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .num {
+        font-size:24rpx;
+        color:#999999;
+      }
+    }
+  }
+}

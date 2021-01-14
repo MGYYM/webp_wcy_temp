@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "flow-water": "webp_wcyui/common/flowWater/index",
+    "l-demo":"/components/customItem/defaultItem"
+  }
 }
